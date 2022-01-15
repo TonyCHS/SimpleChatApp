@@ -11,9 +11,9 @@ const Stack = createStackNavigator();
 export default function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator mode="modal">
+        <Stack.Screen component={ChatScreen} name="Chat" />
         <Stack.Screen name="Login" component={LoginScreen} />
-        <Stack.Screen name="Chat" component={ChatScreen} />
       </Stack.Navigator>
     </NavigationContainer>
   );

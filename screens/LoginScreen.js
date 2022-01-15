@@ -17,16 +17,19 @@ const auth = firebase.auth();
 export default function LoginScreen({ navigation }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorText, setErrorText] = useState("");
 
   function login() {
+    Keyboard.dismiss();
     auth
       .signInWithEmailAndPassword(email, password)
-      .then((userCredential) => {
+      .then(({ userCredential }) => {
         console.log("Signed in!");
-        navigation.navigate("Chat", { email });
+        // navigation.navigate("Chat", { email });
       })
       .catch((error) => {
         console.log("Error!");
+        setErrorText(error.message);
       });
   }
 
@@ -57,6 +60,7 @@ export default function LoginScreen({ navigation }) {
         <TouchableOpacity onPress={login} style={styles.loginButton}>
           <Text style={styles.buttonText}>Log in</Text>
         </TouchableOpacity>
+        <Text styles={styles.errorText}>{errorText}</Text>
       </View>
     </TouchableWithoutFeedback>
   );
@@ -100,6 +104,9 @@ const styles = StyleSheet.create({
   },
   errorText: {
     color: "red",
+    marginTop: 20,
+    marginLeft: 20,
+    marginRight: 20,
     height: 40,
   },
 });
