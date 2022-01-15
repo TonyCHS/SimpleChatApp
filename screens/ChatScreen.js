@@ -76,8 +76,8 @@ export default function ChatScreen({ navigation }) {
         },
       }}
       user={{
-        _id: firebase.auth().currentUser.uid,
-        name: firebase.auth().currentUser.email,
+        _id: firebase.auth().currentUser?.uid,
+        name: firebase.auth().currentUser?.email,
       }}
     />
   );
