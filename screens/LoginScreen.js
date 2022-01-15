@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, Image } from "react";
 import {
   View,
   Text,
@@ -36,6 +36,7 @@ export default function LoginScreen({ navigation }) {
   return (
     <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
       <View style={styles.container}>
+        {/* <Image style={styles.logo} source={require("../assets/logo.png")} /> */}
         <Text style={styles.title}>Chat App</Text>
         <Text style={styles.fieldTitle}>Email</Text>
         <TextInput
@@ -108,5 +109,12 @@ const styles = StyleSheet.create({
     marginLeft: 20,
     marginRight: 20,
     height: 40,
+  },
+  logo: {
+    width: 80,
+    height: 80,
+    alignSelf: "center",
+    marginTop: 50,
+    marginBottom: 20,
   },
 });
